@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
     <title>Namste React</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- <div id="'root"><h1>hello world</h1></div> -->
-    <div id="root"></div>
-    <script>
+    <h1>hello naveen</h1>
+    <div id="root">
+      <h1>rashmi</h1>
+      <!-- whatever inside here is later replacing with root.render -->
+    </div>
+    <!-- <script>
         const heading = document.createElement("h1");
         heading.innerHTML  = "Hello world from javascript";
         const root = document.getElementById("root");
         root.appendChild(heading); 
-    </script>
-</body>
+    </script> -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="./App.js"></script>
+  </body>
 </html>
