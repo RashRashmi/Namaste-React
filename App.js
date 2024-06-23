@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement(
   "h1",
   { id: "heading" },
@@ -7,7 +10,7 @@ const heading = React.createElement(
 //this object is the place where ur providing attributes to the tag
 
 console.log(heading);
-//at the end of the React.createElement is just and object
+//at the end of the React.createElement is just an object
 //It basically creates javascript object. - this is the React element  this is not the actual fiull tag.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
