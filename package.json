@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This is Rashmitha, who is enrolled in Namaste React Course\"",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
