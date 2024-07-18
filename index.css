@@ -86,3 +86,8 @@ width:150px;
 .search-box {
 
 }
+
+.user-card {
+    padding: 10px;
+    border: 1px solid black;
+}
