@@ -53,28 +53,36 @@ const Body = () => {
       <h1>Looks like your offline!! Please check your internet Connection</h1>
     );
 
-  return listofRestaurants.length === 0 ? (
+  return listofRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search-container">
+      <div className=" flex">
+        <div className="search m-4 p-4">
           <input
-            type="search"
-            className="search-box"
+            type="text"
+            className="border border-solid border-black"
             value={searchText}
             onChange={onSearchType}
           />
-          <button onClick={onSearch}>Search</button>
+          <button className="px-4 py-1 bg-green-100 m-4" onClick={onSearch}>
+            Search
+          </button>
         </div>
-
-        <button className="filter-btn" type="submit" onClick={onClickFilter}>
-          Top Rated Restaurants
-        </button>
+        <div className="search m-4 p-4">
+          {" "}
+          <button
+            className="px-4 py-1 bg-green-100 m-4 rounded-lg"
+            type="submit"
+            onClick={onClickFilter}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
-        {filteredRestaurantList.map((Restaurant) => (
+      <div className="flex flex-wrap">
+        {filteredRestaurantList?.map((Restaurant) => (
           <Link to={"/restaurants/" + Restaurant?.info?.id}>
             <RestaurantCard key={Restaurant?.info?.id} resData={Restaurant} />
           </Link>
