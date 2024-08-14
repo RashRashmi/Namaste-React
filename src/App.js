@@ -9,6 +9,9 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import UserContext from "./utils/userContext";
 const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
@@ -16,13 +19,14 @@ const AppLayout = () => {
   useEffect(() => {
     //Make an api can and sent username and password
     const data = {
-      name: "Rashmi",
+      name: "",
     };
     setUserName(data.name);
   },[]);
 
   return (
-    //providing new value to it and providing throughout the application| header now
+    <Provider store={appStore} >
+    {/* //providing new value to it and providing throughout the application| header now */}
     <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="app">
         <Header />
@@ -30,6 +34,7 @@ const AppLayout = () => {
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -53,6 +58,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",
