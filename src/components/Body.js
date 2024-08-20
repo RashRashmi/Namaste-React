@@ -15,7 +15,6 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-    console.log("listofRestaurants", listofRestaurants);
   }, []);
 
   const fetchData = async () => {
@@ -42,7 +41,7 @@ const Body = () => {
 
   const onSearch = () => {
     //filter the restaurant card and filter the ui
-    const felteredList = listofRestaurants.filter((res) =>
+    const felteredList = listofRestaurants?.filter((res) =>
       res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredResturantList(felteredList);
@@ -69,6 +68,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
+            data-testid = "searchInput"
             className="border border-solid border-black"
             value={searchText}
             onChange={onSearchType}
@@ -102,7 +102,7 @@ const Body = () => {
 
       <div className="flex flex-wrap">
         {filteredRestaurantList?.map((Restaurant) => (
-          <Link to={"/restaurants/" + Restaurant?.info?.id}>
+          <Link key={Restaurant?.info.id} to={"/restaurants/" + Restaurant?.info?.id}>
             {/*If the restaraunt is veg then add a veg label to it  */}
             {Restaurant?.info?.avgRating > 4.5 ? (
               <RestaurantCardVegPromoted resData={Restaurant} />

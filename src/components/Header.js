@@ -40,7 +40,7 @@ const Header = () => {
           </li>
           <li className="px-4 font-bold">
             {" "}
-            <Link to="/cart">Cart - ({cartItems.length})</Link>
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
           </li>
 
           <button className="login" onClick={onLoginLogout}>
